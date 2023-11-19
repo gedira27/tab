@@ -5,4 +5,7 @@ module com.example.menu {
 
     opens com.example.menu to javafx.fxml;
     exports com.example.menu;
+    requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
+    opens com.example.menu.modelos;
 }

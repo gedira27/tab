@@ -1,0 +1,35 @@
+.root{
+    -fx-background-color: #e51a4c ;
+    -fx-background-image: url("https://4.bp.blogspot.com/-hSUxkhxOJjM/V4S4P61L9SI/AAAAAAAAYt8/0nnQBOrVCos_eJIYHD4rPGmjK6m2AdbgACLcB/s1600/la-muerte-de-jacinto-nicolas-rene-jollain-1769.jpg"),url("https://png.pngtree.com/png-vector/20220609/ourmid/pngtree-music-instrument-lira-ancient-antique-png-image_4832032.png");
+    -fx-background-repeat: stretch, no-repeat;
+    -fx-background-size: 100%,10%;
+    -fx-background-position: center, right bottom;
+}
+
+.menu-bar{ //Cambia la barra
+    -fx-background-color: #FFC34A;
+    -fx-border-color: #664300;
+    -fx-border-width: 2;
+}
+
+.menu:hover{ //Cambia cuando le pasas por encima a algo de la barra
+    -fx-background-color: #664300;
+    -fx-font-weight: bold;
+}
+
+.label:hover{
+    -fx-font-size: 13 pt;
+    -fx-text-fill: gold;
+}
+
+.menu-item{
+    -fx-background-color: #FFC34A;
+    -fx-font-weight: bold;
+}
+
+.menu-item:hover{
+    -fx-background-color: #664300;
+    -fx-font-weight: bold;
+    -fx-font-size: 13 pt;
+    -fx-text-fill: gold;
+}

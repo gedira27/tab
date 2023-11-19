@@ -1,7 +1,11 @@
     package com.example.menu;
 
+    import com.example.menu.components.Hilo;
+    import com.example.menu.modelos.Conexion;
     import com.example.menu.vistas.Calculadora;
     import com.example.menu.vistas.Loteria;
+    import com.example.menu.vistas.PistaAtletismo;
+    import com.example.menu.vistas.Restaurante;
     import javafx.application.Application;
     import javafx.scene.Scene;
     import javafx.scene.control.*;
@@ -19,7 +23,7 @@
         private BorderPane borderPane;
         private MenuBar menuBar;
         private Menu menuParcial1, menuParcial2, menuSalir;
-        private MenuItem mitCalculadora,mitLoteria, mitSalir;
+        private MenuItem mitCalculadora,mitLoteria, mitRestaurante, mitPista,  mitSalir;
 
 
         private  void CrearUI(){
@@ -32,7 +36,13 @@
             menuParcial1.getItems().add(mitCalculadora);
             menuParcial1.getItems().add(mitLoteria);
 
+            mitRestaurante = new MenuItem("Restaurante");
+            mitRestaurante.setOnAction((event)->new Restaurante());
+            mitPista = new MenuItem("Pista Atletismo");
+            mitPista.setOnAction((event)->new PistaAtletismo());
+
             menuParcial2 = new Menu("Parcial 2");
+            menuParcial2.getItems().addAll(mitRestaurante,mitPista);
 
 
             menuSalir = new Menu("Mas opciones");
@@ -56,18 +66,26 @@
 
         @Override
         public void start(Stage stage) throws IOException {
+
+            connectToDB();
             CrearUI();
             borderPane = new BorderPane();
             borderPane.setLeft(menuBar);
 
             escena = new Scene(borderPane,400,300);
-            stage  .setScene(escena);
+            escena.getStylesheets().add(getClass().getResource("/estilos/estilos.css").toExternalForm());
+
+            stage.setScene(escena);
+            //stage.setMaximized(true);
             stage.show();
 
 
         }
 
-
+        public void connectToDB(){
+            Conexion.createConnection();
+            System.out.println("Conexión establecida");
+        }
 
         public static void main(String[] args) {
             launch();
